@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+	<application>
+		<message-bundle>resources.application</message-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
+	</application>
+
+    <managed-bean>
+	    <managed-bean-name>aplicacionBean</managed-bean-name>
+	    <managed-bean-class>mx.org.ift.jsf.bean.AplicacionBean</managed-bean-class>
+	    <managed-bean-scope>session</managed-bean-scope>
+	    <managed-property>
+	      <property-name>nomArchConfig</property-name>
+	      <property-class>java.lang.String</property-class>
+	      <value>configAplicacion.xml</value>
+	    </managed-property> 
+     </managed-bean>
+</faces-config>
+
