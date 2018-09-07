@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aplicacion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configAplicacion.xsd">
+	<General>
+	   <nomAplicacion>Aplicación Simple</nomAplicacion>
+	   <version>1.0</version>
+	   <urlAplicacion>localhost:7001/SimpleAplicacion</urlAplicacion>
+	   <entorno>DES</entorno>
+	</General>
+	<Bitacora>
+	   <tipoBitacora>FILE</tipoBitacora>
+	   <habilitado>SI</habilitado>
+	   <rutaBitacora>bitacora/</rutaBitacora>
+	</Bitacora>
+	<Seguridad>
+	   <rutaToken>localhost:7001/seguridadLDAP/Token</rutaToken>
+	   <rutaAutentica>localhost:7001/seguridadLDAP/Autenticacion</rutaAutentica>
+	   <rutaDatosUsuario>localhost:7001/seguridadLDAP/usuario</rutaDatosUsuario>
+	</Seguridad>
+	<Repositorio>
+	   <rutaRepositorio>localhost:7001/repositorio</rutaRepositorio>
+	</Repositorio>
+</aplicacion>
