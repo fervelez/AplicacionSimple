@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<p:growl id="msg" showDetail="true" life="2000" />
+	<ui:composition template="template.xhtml">
+		<ui:define name="contenido">
+			<h:form>
+				<p:breadCrumb>
+					<p:menuitem value="Categories" url="#" />
+				</p:breadCrumb>
+				<div class="container">
+					<div class="left">
+						<p>
+							Selecciona una o varias opciones,<br /> de los servicios que
+							desees obtener sus contratos:<br />
+						</p>
+						<p:selectManyCheckbox id="grid"
+							value="#{servicios.selectedServicios}" layout="grid" columns="1">
+							<f:selectItems value="#{servicios.servicios}" var="servicio"
+								itemLabel="#{servicio}" itemValue="#{servicio}" />
+						</p:selectManyCheckbox>
+						<br />
+						<p:commandButton value="Limpiar" id="btnLimpiar"
+							icon="ui-icon-trash" update="grid" process="@this">
+							<p:resetInput target="grid" />
+						</p:commandButton>
+
+						<p:commandButton id="btnSiguiente" value="Siguiente"
+							update="display" oncomplete="PF('dlg').show()"
+							icon="ui-icon-search" actionListener="#{servicios.siguiente}" />
+
+						<p:dialog 
+							header="Estamos buscando todos los proveedores que coincidan con tu selección"
+							modal="true" showEffect="clip" widgetVar="dlg" resizable="false">
+							<p:outputPanel id="display">
+								<p:dataList value="#{servicios.selectedServicios}"
+									var="servicio">
+					                #{servicio}
+					            </p:dataList>
+							</p:outputPanel>
+						</p:dialog>
+					</div>
+					<div class="center"></div>
+					<div class="right"></div>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

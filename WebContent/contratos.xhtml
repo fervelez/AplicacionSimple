@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="contenido">
+			<h:form>
+				<p:breadCrumb>
+					<p:menuitem value="Categories" url="#" />
+					<p:menuitem value="Servicios" url="servicios.xhtml" />
+				</p:breadCrumb>
+				<div class="container">
+					<div class="left">
+						<p>
+							Selecciona dos o más contratos para comparar,<br /> sí deseas
+							ver un contrato en particular pulsa en <font color="orange">
+							"ver contrato" </font><br />
+						</p>
+						<p:autoComplete id="acContratos" value="#{contratos.txt1}" completeMethod="#{contratos.completeText}" />
+						
+						<br />
+						<p:selectManyCheckbox id="grid"
+							value="#{contratos.selectedContratos}" layout="grid" columns="1">
+							<f:selectItems value="#{contratos.contratos}" var="contrato"
+								itemLabel="#{contrato}" itemValue="#{contrato}" />
+						</p:selectManyCheckbox>
+						<br />
+						<p:commandButton value="Limpiar" id="btnLimpiar"
+							icon="ui-icon-trash" process="@this">
+						</p:commandButton>
+
+						<p:commandButton id="btnSiguiente" value="Siguiente"
+							oncomplete="PF('dlg').show()"
+							icon="ui-icon-search" actionListener="#{contratos.siguiente}" />
+							
+						<p:dialog 
+							header="Estamos buscando todos los contratos que coincidan con tu selección"
+							modal="true" showEffect="clip" widgetVar="dlg" resizable="false">
+							<p:outputPanel id="display">
+								<p:dataList value="#{servicios.selectedServicios}"
+									var="servicio">
+					                #{servicio}
+					            </p:dataList>
+							</p:outputPanel>
+						</p:dialog>
+					</div>
+					<div class="center"></div>
+					<div class="right"></div>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

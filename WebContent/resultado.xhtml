@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="contenido">
+			<h:form>
+				<p:breadCrumb>
+					<p:menuitem value="Categories" url="#" />
+				</p:breadCrumb>
+				<div class="container">
+					<div class="left">
+						<p>Selecciona una o varias opciones,<br /> de los servicios que
+						desees obtener sus contratos:<br />
+						</p>
+						<p:selectManyCheckbox id="grid"
+							value="#{servicios.selectedCities}" layout="grid" columns="1">
+							<f:selectItems value="#{servicios.cities}" var="city"
+								itemLabel="#{city}" itemValue="#{city}" />
+						</p:selectManyCheckbox>
+						<br />
+						<p:commandButton value="Limpiar" id="btnLimpiar" icon="ui-icon-trash" />
+						<p:commandButton value="Siguiente" id="btnSiguiente" icon="ui-icon-search" />
+					</div>
+					<div class="center"></div>
+					<div class="right"></div>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
