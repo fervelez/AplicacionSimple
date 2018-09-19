@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
-    version="2.2">
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
 
 	<application>
 		<message-bundle>resources.application</message-bundle>
@@ -12,31 +11,30 @@
 		</locale-config>
 	</application>
 
-    <managed-bean>
-	    <managed-bean-name>aplicacionBean</managed-bean-name>
-	    <managed-bean-class>mx.org.ift.jsf.bean.AplicacionSimpleBean</managed-bean-class>
-	    <managed-bean-scope>session</managed-bean-scope>
-	    <managed-property>
-	      <property-name>nomArchConfig</property-name>
-	      <property-class>java.lang.String</property-class>
-	      <!-- <value>E:\fvelez\Indra\ift\Workspace\FrameWork\AplicacionSimple\src\config\configAplicacion.xml</value> -->
-	      <value>mx/org/ift/jsf/bean/data/configAplicacion.xml</value>
-	    </managed-property> 
-	    	    <managed-property>
-	      <property-name>tipoAplicacion</property-name>
-	      <property-class>java.lang.String</property-class>
-	      <value>Simple</value>
-	    </managed-property> 
-     </managed-bean>
-     <managed-bean>
-	    <managed-bean-name>controladorAplicacion</managed-bean-name>
-	    <managed-bean-class>mx.org.ift.jsf.controller.ControladorAplicacion</managed-bean-class>
-	    <managed-bean-scope>session</managed-bean-scope>
-	    <managed-property>
-	      <property-name>aplicacionBean</property-name>
-	      <property-class>mx.org.ift.jsf.bean.AplicacionBean</property-class>
-	      <value>#{aplicacionBean}</value>
-	    </managed-property> 
-     </managed-bean>
+	<managed-bean>
+		<managed-bean-name>aplicacionBean</managed-bean-name>
+		<managed-bean-class>mx.org.ift.jsf.bean.AplicacionBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>nomArchConfig</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>configAplicacion.xml</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>consumeWS</managed-bean-name>
+		<managed-bean-class>mx.org.ift.seguridad.ConsumeWS</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>respuesta</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>configAplicacion.xml</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>mx.org.ift.login.LoginBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 </faces-config>
 
